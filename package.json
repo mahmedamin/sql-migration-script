@@ -1,0 +1,19 @@
+{
+  "name": "migration-from-staging-to-local",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate-mssql": "node migration-scripts/migration-mssql.js",
+    "migrate-mysql": "node migration-scripts/migration-mysql.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "mssql": "^10.0.1",
+    "tedious": "^16.4.1"
+  }
+}
