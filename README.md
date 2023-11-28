@@ -71,7 +71,7 @@ cp .env.example .env
 
 To copy data from the server's database to your local development environment, run the following command:
 ```
-npm run migrate-data
+npm run start
 ```
 
 The tool will automatically copy the data from the live production database to your local development database, ensuring that your local environment has up-to-date data for testing and development.

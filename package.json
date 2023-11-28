@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "migrate-mssql": "node migration-scripts/migration-mssql.js",
-    "migrate-mysql": "node migration-scripts/migration-mysql.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
