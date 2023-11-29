@@ -67,6 +67,9 @@ cp .env.example .env
 
 2. Open the `.env` file and replace the connection strings with your actual database connection details.
 
+### (Optional)
+You can also set table specific configuration in `.env`
+
 ### Migrating Data
 
 To copy data from the server's database to your local development environment, run the following command:

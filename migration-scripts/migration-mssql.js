@@ -1,32 +1,15 @@
+const {
+    getSpecificTables,
+    getIgnoreInsertionTables,
+    getTableStartSequence,
+    sourceConfig,
+    localConfig
+} = require('../utils/env.util');
 const sql = require('mssql');
-require('dotenv').config();
 
-const {env} = process;
-
-const SPECIFIC_TABLES = [] // If this array contains any table, it will only do migration for provided tables
-
-// List of tables where insertion will be ignored
-const IGNORE_INSERTIONS = ['__EFMigrationsHistory', '__MigrationHistory', 'api_token', 'notes'];
-
-// If you want to start migration from a specific table, set this value to that table index
-const TABLE_START_SEQUENCE = 1;
-
-const sourceConfig = {
-    user: env.SOURCE_DB_USER,
-    password: env.SOURCE_DB_PASSWORD,
-    server: env.SOURCE_DB_HOST,
-    database: env.SOURCE_DB_NAME,
-};
-
-const localConfig = {
-    user: env.LOCAL_DB_USER,
-    password: env.LOCAL_DB_PASSWORD,
-    server: env.LOCAL_DB_HOST,
-    database: env.LOCAL_DB_NAME,
-    options: {
-        trustServerCertificate: true,
-    },
-};
+const SPECIFIC_TABLES = getSpecificTables();
+const IGNORE_INSERTIONS = getIgnoreInsertionTables();
+const TABLE_START_SEQUENCE = getTableStartSequence();
 
 const sourceConnection = new sql.ConnectionPool(sourceConfig);
 const localConnection = new sql.ConnectionPool(localConfig);
